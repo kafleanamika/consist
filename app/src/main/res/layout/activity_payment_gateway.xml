@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".payment_gateway"
+    android:background="@color/background"
+    >
+
+
+
+
+
+    <LinearLayout
+
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PAYMENT"
+            android:background="@color/foreground"
+            android:padding="5dp"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+
+            android:gravity="center"
+
+            />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bank Details"
+            android:background="@color/foreground"
+            android:padding="5dp"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+
+            android:gravity="center"
+
+            />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esewa id -"
+            android:background="@color/foreground"
+            android:padding="5dp"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+
+            />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bank id -"
+            android:background="@color/foreground"
+            android:padding="5dp"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please add the name at remark of payment"
+            android:background="@color/foreground"
+            android:padding="5dp"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Full payment is required to move towards booking"
+            android:background="@color/foreground"
+            android:padding="5dp"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TOTAL AMOUNT:"
+            android:background="@color/foreground"
+            android:padding="5dp"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:text="You will have to wait until the payment has been confirmed.
+            It might take a few hours. You can check if it has been confirmed or not by clicking on the button below.
+            Once its confirmed you wil be able to acess the consultant chat box. Thankyou! "
+            android:background="@drawable/custon_listing_small_card"
+            android:padding="5dp"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+
+        <Button
+
+android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_"
+            android:gravity="center"
+            android:text="Check?"
+
+            />
+    </LinearLayout>
+
+
+
+</ScrollView>

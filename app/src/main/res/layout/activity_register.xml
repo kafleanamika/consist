@@ -5,15 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register"
+    android:background="@color/background"
     >
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_gravity="center"
+
     >
 
     <TextView
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        />
+    <TextView
+android:textColor="@color/white"
         android:text="Enter Name: "
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
@@ -21,12 +33,17 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"
         android:id="@+id/input_name"
         android:layout_gravity="center"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"/>
+        android:layout_width="300dp"
+        />
 
     <TextView
+        android:textColor="@color/white"
+
         android:text="Enter Email: "
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
@@ -34,13 +51,18 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"
         android:id="@+id/input_email"
         android:layout_gravity="center"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"/>
+        android:layout_width="300dp"
+      />
 
 
     <TextView
+        android:textColor="@color/white"
+
         android:layout_gravity="center"
         android:text="Enter Password: "
         android:layout_marginTop="30dp"
@@ -49,12 +71,15 @@
 
     <EditText
         android:id="@+id/input_password"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"        android:layout_gravity="center"
         />
 
     <TextView
+        android:textColor="@color/white"
+
         android:layout_gravity="center"
         android:text="Confirm Password: "
         android:layout_marginTop="30dp"
@@ -62,12 +87,16 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:textColor="@color/white"
         android:id="@+id/input_passwordre"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"
         android:layout_gravity="center"
         />
     <TextView
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:text="Phone Number: "
         android:layout_marginTop="30dp"
@@ -76,12 +105,15 @@
 
     <EditText
         android:id="@+id/phone_number_input"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"        android:layout_gravity="center"
         />
 
     <TextView
+        android:textColor="@color/white"
+
         android:layout_gravity="center"
         android:text="Category: "
         android:layout_marginTop="30dp"
@@ -90,6 +122,8 @@
 
 
     <Button
+        android:background="@drawable/custom_"
+        android:textColor="@color/foreground"
         android:id="@+id/Patient"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
@@ -98,6 +132,9 @@
 
         />
     <Button
+        android:background="@drawable/custom_"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/foreground"
         android:id="@+id/Consultant"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
@@ -108,7 +145,8 @@
 
 
     <Button
-
+        android:backgroundTint="@color/white"
+        android:textColor="@color/foreground"
         android:id="@+id/register"
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"

@@ -8,10 +8,26 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.DietConsultant">
-        <activity android:name=".patient_chat_list"></activity>
+        <activity android:name=".Homepage"></activity>
+        <activity android:name=".Developers_dashboard" />
+        <activity android:name=".signout" />
+        <activity android:name=".Splash_screen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".once_meetings_over" />
+        <activity android:name=".booking_requests_consultant" />
+        <activity android:name=".Confirmed_bookings" />
+        <activity android:name=".payment_gateway" />
+        <activity android:name=".consultant_information_specific" />
+        <activity android:name=".otp_act" />
+        <activity android:name=".patient_chat_list" />
         <activity android:name=".Chat_" />
         <activity android:name=".Consultants_for_patients" />
         <activity android:name=".Consultant_dashboard" />
@@ -20,13 +36,8 @@
         <activity android:name=".Health_Information" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

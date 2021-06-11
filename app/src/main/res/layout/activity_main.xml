@@ -5,10 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background"
+
+    >
 
     <TextView
-
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DIET CONSULTANT"
@@ -25,17 +28,23 @@
         />
 
     <Button
+        android:background="@drawable/custom_"
         android:id="@+id/Login"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="150dp"
         android:text="Login"
+        android:textColor="@color/foreground"
 
         />
 
     <Button
-        android:layout_width="150dp"
+        android:backgroundTint="@color/foreground"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_"
+        android:textColor="@color/white"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/signup"
         android:layout_gravity="center"

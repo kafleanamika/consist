@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Homepage"
+    android:background="@color/background"
+    >
+<LinearLayout
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:textColor="@color/white"
+            android:padding="5dp"
+            android:text="      DIET CONSULTANT    "
+            android:background="@color/foreground"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <Button
+        android:text="SignUP"
+        android:id="@+id/be_a_member"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:background="@color/foreground"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp" />
+
+
+
+    </LinearLayout>
+
+
+    <TextView
+
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="15dp"
+
+        android:text="Many healthcare practitioners today are concerned about maintaining a healthy society; as a result, many healthcare executives, organizations, and supporting societies are pursuing preventative medicine to save individuals from potential health problems."
+        android:layout_marginTop="10dp"
+        android:minHeight="100dp"
+        android:background="@drawable/custon_listing_small_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <ImageView
+        android:layout_margin="5dp"
+        android:src="@drawable/food"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"/>
+
+
+    <TextView
+
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="15dp"
+
+        android:text="Technology is one of the most important tools that may assist with this. Combining medical expertise with technological understanding can assist people in becoming self-educated. This application is focused on people’s health using technology. Due to this pandemic, people are unable to go to the hospitals/clinic for their proper diet, so this application is mainly focused on virtual counseling with their respective consultants. This application also consists of diet chat of interested users with their given information which includes their height, weight, age, their regular exercise if they do, their eating habits also if they are a student/a job holder/house person. This application also focuses on people’s mental as well as physical problems. "
+        android:layout_marginTop="10dp"
+        android:minHeight="400dp"
+        android:background="@drawable/custon_listing_small_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+    <ImageView
+        android:layout_margin="5dp"
+        android:src="@drawable/food"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <TextView
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="15dp"
+
+        android:text="This application is mainly based upon people who are trying to adopt good, healthy foods in order to remain healthy and fit. This application (Diet Consultant applications) is especially motivated by Nepal tradition food type and lifestyles. This would set it apart from other applications on the market. It would be appropriate for Nepalese men and women. This application is also based upon the people who are uncomfortable with face-to-face communications, so this mobile application is an opportunity for those people to share their difficulties in a virtual way through a chat box which is also the most important part of this project. "
+        android:layout_marginTop="10dp"
+        android:minHeight="400dp"
+        android:background="@drawable/custon_listing_small_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+</ScrollView>

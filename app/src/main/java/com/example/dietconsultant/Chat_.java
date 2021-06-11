@@ -15,11 +15,13 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +29,7 @@ import java.util.Map;
 public class Chat_ extends AppCompatActivity {
 
     int flag;
+    int flag2;
 
     String consultant_name;
     String patient_name;
@@ -39,8 +42,10 @@ public class Chat_ extends AppCompatActivity {
 
 
     FirebaseFirestore myRef;
+    FirebaseFirestore mRef;
     FirebaseAuth myAuth;
 
+    Map<String,Object> d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +69,38 @@ public class Chat_ extends AppCompatActivity {
 
         myAuth = FirebaseAuth.getInstance();
         myRef = FirebaseFirestore.getInstance();
+        mRef = FirebaseFirestore.getInstance();
 
 
-        set_activity_name();
-        send_();
+
+        myRef.collection("Bookings").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for(QueryDocumentSnapshot q: queryDocumentSnapshots){
+
+
+                    if (q.getString("finished").equals("no") && q.get("consultant").equals(consultant_name) && q.get("patient").equals(patient_name)) {
+
+
+                        set_activity_name();
+                        send_();
+
+                    } else{
+
+                        Toast.makeText(Chat_.this,"Please make another appointment for further communication",Toast.LENGTH_LONG).show();
+
+
+                    }
+                }
+
+            }
+        });
+
+
+
+
+
+
 
     }
 
@@ -78,7 +111,14 @@ public class Chat_ extends AppCompatActivity {
 
     }
 
+
+
     public void set_activity_name(){
+
+        //if tyo booking is ummm unpaid nd time is up. Then hide the send button
+
+
+
 
         //if its doctor set the patient name
         Log.d("Chat11",String.valueOf(flag)+"--FLAG");
@@ -107,20 +147,24 @@ public class Chat_ extends AppCompatActivity {
 
         //if it is patient set consultant name
     }
-int data_number = 0;
+
+
+    int data_number = 0;
     String value = "";
+
+
     public void push_to_database(String sender){
 
-        //every time a user sends a data send it to databse
+        //every time a user sends a data send it to database
 
-        if(!send_box.getText().toString().trim().isEmpty()){
+        if(!message.isEmpty()){
 
             Map<String,Object> data = new HashMap<>();
             myRef.collection("Chat").document(consultant_name).collection(patient_name).orderBy("number").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                     if(queryDocumentSnapshots.isEmpty()){
-                        data.put("data",sender + " -->"+ send_box.getText().toString().trim());
+                        data.put("data",sender + " -->"+ message);
                         data.put("number",String.valueOf(data_number));
                         myRef.collection("Chat").document(consultant_name).collection(patient_name).add(data);
                         Log.d("data_number","wrong here");
@@ -141,7 +185,7 @@ int data_number = 0;
                         data_number = Integer.parseInt(value);
                         data_number = data_number+1;
                         Log.d("data_number",value);
-                        data.put("data",sender + " -->"+ send_box.getText().toString().trim());
+                        data.put("data",sender + " -->"+ message);
                         data.put("number",String.valueOf(data_number));
                         myRef.collection("Chat").document(consultant_name).collection(patient_name).add(data);
 
@@ -189,26 +233,35 @@ int data_number = 0;
 
 
     }
+    String value_chat_string;
+    int value_chat = 0;
+    String message ="" ;
 
     public void send_(){
+
+
+        value_chat_string = "";
+        flag2 = 0 ;
 
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                message = send_box.getText().toString().trim();
+
+                send_box.setText("");
+
+
                 if (flag == 0) {
                     //patient
 
-                    push_to_database(patient_name);
-                    Map<String,Object> data = new HashMap<>();
 
-                    data.put("name",consultant_name);
-                    myRef.collection("Paitnet_Talked_to").document(patient_name).set(data);
+                    push_to_database(patient_name);
+
 
                 } else if(flag == 1){
 
                     // consultant
-
                     push_to_database(consultant_name);
 
 
@@ -218,6 +271,8 @@ int data_number = 0;
                     Log.d("Chat11",String.valueOf(flag)+"--FLAG");
 
                 }
+
+
 
             }
         });

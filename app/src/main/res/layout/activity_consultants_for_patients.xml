@@ -7,14 +7,20 @@
     tools:context=".Personal_dashboard_patients"
     android:orientation="vertical"
    android:id="@+id/layout_id"
+    android:background="@color/background"
     >
 
-    <Button
-        android:id="@+id/see_recommended"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recommeded Diet"
-        />
+
+    <TextView
+        android:background="@drawable/custon_listing_small_card"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:text="BOOK MEETINGS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 

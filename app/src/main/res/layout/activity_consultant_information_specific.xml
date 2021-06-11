@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".consultant_information_specific"
+    android:orientation="vertical"
+    android:background="@color/background"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/consultant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="30dp"
+        android:text="Data"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        />
+
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Academic Information"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:gravity="center"
+            />
+    <LinearLayout
+        android:minHeight="70dp"
+        android:padding="10dp"
+
+        android:id="@+id/information_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:background="@drawable/custon_listing_small_card">
+
+
+    </LinearLayout>
+
+        <TextView
+
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="General Information"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:gravity="center"
+            />
+
+
+
+        <LinearLayout
+            android:minHeight="70dp"
+android:padding="10dp"
+            android:layout_margin="5dp"
+            android:id="@+id/information_space_general"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/custon_listing_small_card">
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price Per Session"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/cost_ref"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:gravity="center"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:background="@color/foreground"
+                android:text="DAY |"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:background="@color/foreground"
+                android:textColor="@color/white"
+                android:text=" | 8-10 |   | 10-12 |   | 12-2 |     | 2-4 |      | 4-6 |     | 6-7 |"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:background="@color/background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/time_option"
+            android:orientation="horizontal"
+            >
+
+
+            <LinearLayout
+                android:layout_marginRight="2dp"
+                android:id="@+id/days"
+                android:orientation="vertical"
+                android:layout_width="42dp"
+                android:layout_height="600dp">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:text="S-"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+
+                    android:textColor="@color/white"
+                    android:text="M-"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"                    android:textColor="@color/white"
+                    android:text="T-"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"                    android:textColor="@color/white"
+                    android:text="W-"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"                    android:textColor="@color/white"
+                    android:text="T-"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"                    android:textColor="@color/white"
+                    android:text="F-"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"                    android:textColor="@color/white"
+                    android:text="ST-"
+                    />
+
+            </LinearLayout>
+
+
+
+<LinearLayout
+    android:layout_marginRight="10dp"
+
+    android:id="@+id/v1"
+    android:orientation="vertical"
+    android:layout_width="55dp"
+    android:layout_height="600dp">
+
+
+</LinearLayout>
+
+            <LinearLayout
+                android:layout_marginRight="5dp"
+
+                android:id="@+id/v2"
+                android:orientation="vertical"
+                android:layout_width="55dp"
+                android:layout_height="match_parent">
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginRight="5dp"
+
+                android:id="@+id/v3"
+                android:orientation="vertical"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginRight="5dp"
+
+                android:id="@+id/v4"
+                android:orientation="vertical"
+                android:layout_width="55dp"
+                android:layout_height="match_parent">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginRight="5dp"
+
+                android:id="@+id/v5"
+                android:orientation="vertical"
+                android:layout_width="55dp"
+                android:layout_height="match_parent">
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/v6"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical"
+                android:layout_width="55dp"
+                android:layout_height="match_parent">
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/custom_"
+        android:textColor="@color/foreground"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:text="Book" />
+
+    </LinearLayout>
+</ScrollView>

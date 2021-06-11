@@ -40,20 +40,16 @@ public class MainActivity extends AppCompatActivity {
         Register();
     }
 
+
     public void login(){
-        name = "Test/"+ myAuth.getCurrentUser().getUid()+"/health_info";
         Button login = (Button) findViewById(R.id.Login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Map<String, Object> user = new HashMap<>();
-                user.put("dance","hjhjhjk");
-                docRef.collection("Test").document(myAuth.getCurrentUser().getUid()).collection("health").document("Health_info").set(user);
-                Log.i("dataid", String.valueOf(docRef.collection("Test").get()));
-
 
 
                 Intent intent = new Intent(getApplicationContext(),Login.class);
+                intent.putExtra("Consultant","anubhav");
                 startActivity(intent);
             }
         });

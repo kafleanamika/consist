@@ -30,6 +30,8 @@ public class Health_Information extends AppCompatActivity {
     public int ag;
     int Kal;
     public double BMI;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +46,6 @@ public class Health_Information extends AppCompatActivity {
             myRef = FirebaseFirestore.getInstance();
             myAuth = FirebaseAuth.getInstance();
         Done();
-
-
 
     }
 
@@ -204,17 +204,17 @@ public void push_for_fit(String doc_name, Integer calorie, String exercise_time,
         //at start exercise intensive, moderate in calorie
         Log.i("BMI","Pushing data High energy for 10 - 15 yrs weight");
 
-        push_databse("Week : 1",C, 30,"exercise time");
+        push_databse("Week : 1",C, 30,"Time");
         Log.i("BMI","Pushed for once for 10 - 15 yrs weight");
         // exercise intensive, less calorie
 
         C= (int) (C - (0.2 * C));
-        push_databse("Week : 2", C, 30, "exercise time");
+        push_databse("Week : 2", C, 30, "Time");
         Log.i("BMI","Pushed for twice for 10 - 15 yrs weight");
         //constant
 
 
-        push_databse("Week : 3", C, time_calroie_equals_exercise(C),"exercise name");
+        push_databse("Week : 3", C, 30,"Time");
         Log.i("BMI","Pushed for thrice for 10 - 15 yrs weight");
 
 
@@ -227,18 +227,18 @@ public void push_for_fit(String doc_name, Integer calorie, String exercise_time,
         //at start exercise intensive, moderate in calorie
         int C = Kal;
 
-        push_databse("Week : 1",C, 15,"exercise time");
+        push_databse("Week : 1",C, 15,"Time");
         // exercise intensive, less calorie
         C= (int) (C - (0.2 * C));
-        push_databse("Week : 2", C, 15, "exercise time");
+        push_databse("Week : 2", C, 15, "Time");
         //exercise intensive
         C= (int) (C - (0.3 * C));
-        push_databse("Week : 3", C, 30, "exercise time");
+        push_databse("Week : 3", C, 30, "Time");
 
 
         //constant
 
-        push_databse("Week : 3", C, time_calroie_equals_exercise(C),"exercise name");
+        push_databse("Week : 4", C, 30,"Time");
 
     }
     public void low_enegry_high_weight(){
@@ -248,18 +248,18 @@ public void push_for_fit(String doc_name, Integer calorie, String exercise_time,
         //constant
         //at start exercise intensive, moderate in calorie
       int C = Kal;
-        push_databse("Week : 1",C, 15,"exercise time");
+        push_databse("Week : 1",C, 15,"Time");
         // exercise intensive, less calorie
         C= (int) (C - (0.2 * C));
-        push_databse("Week : 2", C, 15, "exercise time");
+        push_databse("Week : 2", C, 15, "Time");
         //exercise intensive
         C= (int) (C - (0.3 * C));
-        push_databse("Week : 3", C, 30, "exercise time");
+        push_databse("Week : 3", C, 30, "Time");
 
 
         //constant
 
-        push_databse("Week : 3", C, time_calroie_equals_exercise(C),"exercise name");
+        push_databse("Week : 4", C,30,"Time");
 
 
     }
@@ -328,8 +328,7 @@ return 0 ;
 
 
         //week 5 -- which exercise
-        E = time_calroie_equals_exercise(C);
-        push_underweight("Week 3: ", String.valueOf(C),String.valueOf(E),"Not time");
+        push_underweight("Week 3: ", String.valueOf(2300),String.valueOf(30),"Time");
 
 
 
@@ -360,6 +359,7 @@ return 0 ;
                 algo1();
                 Intent intent = new Intent(getApplicationContext(),Personal_dashboard_patients.class);
                 startActivity(intent);
+                finish();
             }
         });
     }}

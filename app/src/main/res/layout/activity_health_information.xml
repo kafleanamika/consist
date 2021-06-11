@@ -6,72 +6,113 @@
     android:layout_height="match_parent"
     tools:context=".Health_Information"
     android:orientation="vertical"
+    android:background="@color/background"
     >
 
     <TextView
-
-        android:text="Weight"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="PHYSICAL INFORMATION"
+        android:textSize="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/weight_info"
+        android:layout_marginTop="3dp"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <TextView
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="Weight"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <EditText
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"
+        android:id="@+id/weight_info"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        />
+
     <TextView
 
-
+        android:textColor="@color/white"
+        android:gravity="center"
         android:text="Height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/height_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"/>
     <TextView
 
+        android:textColor="@color/white"
+android:gravity="center"
         android:text="Age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/age_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"/>
 
     <TextView
-
+        android:textColor="@color/white"
+        android:gravity="center"
         android:text="Calorie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/calorie_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"/>
 
     <TextView
-
+        android:textColor="@color/white"
+android:gravity="center"
         android:text="Exercise Time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/exercisee_info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edittext"
+        android:layout_height="45dp"/>
 
 
 
 
     <Button
 
+        android:background="@drawable/custom_"
         android:id="@+id/input_health_info"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Done"
+        android:textColor="@color/foreground"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         />

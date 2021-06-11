@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".otp_act"
+    android:orientation="vertical"
+    android:background="@color/background"
+    >
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please type your OTP :"
+        android:layout_marginTop="300dp"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        />
+    <EditText
+        android:id="@+id/OTP_input"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edittext"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_"
+
+        android:layout_gravity="center"
+        android:text="Confirm"
+        android:layout_marginTop="10dp"
+        android:id="@+id/confirm"
+        />
+
+
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="300dp"
+    android:layout_marginTop="70dp"
+android:layout_gravity="bottom"
+
+android:background="@drawable/custom_listing">
+</LinearLayout>
+
+</LinearLayout>

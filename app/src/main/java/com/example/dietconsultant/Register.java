@@ -13,12 +13,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +31,13 @@ public class Register extends AppCompatActivity {
     FirebaseFirestore myRef;
     int flag ;
     Button register;
+    EditText name;
+
+    int OTP;
+
+    int f = 0;
+
+    OTP otp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +45,13 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
          register = (Button)findViewById(R.id.register);
 
+
         register(consultant_or());
         mAuth = FirebaseAuth.getInstance();
         myRef = FirebaseFirestore.getInstance();
+
+        name = (EditText)findViewById(R.id.input_name);
+
     }
 
     public int consultant_or(){
@@ -54,17 +68,27 @@ public class Register extends AppCompatActivity {
         patient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                flag = 0;
-                Log.d("flag1", String.valueOf(flag));
+                int val = check_if_name_exists("Patient_list",name.getText().toString().trim());
+               if( val  == 0) {
+                   flag = 0;
+                   Log.d("flag1", String.valueOf(flag));
+
+               }
+
 
             }
         });
         consultant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                flag = 1;
-             Log.d("flag1", String.valueOf(flag));
+                int val = check_if_name_exists("Patient_list",name.getText().toString().trim());
 
+                if (val == 0) {
+
+                    flag = 1;
+                    Log.d("flag1", String.valueOf(flag));
+
+                }
             }
         });
 
@@ -86,6 +110,7 @@ public void register(int flag) {
             public void onClick(View view) {
                 //System.out.print(flag);
                 getData();
+                finish();
 
             }
         });
@@ -97,7 +122,7 @@ public void register(int flag) {
 
 
     public void getData(){
-        EditText name = (EditText)findViewById(R.id.input_name);
+
         EditText email = (EditText)findViewById(R.id.input_email);
         EditText password = (EditText)findViewById(R.id.input_password);
         EditText re_password = (EditText)findViewById(R.id.input_passwordre);
@@ -175,78 +200,57 @@ public void register(int flag) {
 
 
 
-        if(flag==0 ) {
+
+Intent i = new Intent(getApplicationContext(),otp_act.class);
+        i.putExtra("email",E);
+        i.putExtra("password",P);
+        i.putExtra("ph",Ph);
+        i.putExtra("name",N);
+        i.putExtra("flag",String.valueOf(flag));
 
 
-            mAuth.createUserWithEmailAndPassword(E, P)
-                    .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, send data to firestore
-                                Map<String,Object> patient_info = new HashMap<>();
-                                patient_info.put("Email",E);
-                                patient_info.put("Name",N);
-                                patient_info.put("Phone",Ph);
-
-                                myRef.collection("Patient").document(mAuth.getCurrentUser().getUid()).set(patient_info);
-
-                                Map<String,Object> name = new HashMap<>();
-
-                                name.put("name",N);
-                                myRef.collection("Patient_list").document(mAuth.getCurrentUser().getUid()).set(name);
-
-
-                                Intent intent = new Intent(getApplicationContext(), Health_Information.class);
-                                startActivity(intent);
-
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w("flag1", "createUserWithEmail:failure", task.getException());
-
-                            }
-                        }
-                    });
+        startActivity(i);
 
 
 
-        } else if (flag ==1){
-
-            mAuth.createUserWithEmailAndPassword(E, P)
-                    .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, send data to firestore
-                                Map<String,Object> consultant_info = new HashMap<>();
-                                consultant_info.put("Email",E);
-                                consultant_info.put("Name",N);
-                                consultant_info.put("Phone",Ph);
-                                Map<String,Object> name = new HashMap<>();
-
-                                name.put("name".toString(),N);
-
-
-                                myRef.collection("Consultant").document(mAuth.getCurrentUser().getUid()).set(consultant_info);
-                                myRef.collection("Consultant_list").document(mAuth.getCurrentUser().getUid()).set(name);
-
-
-                                Intent intent = new Intent(getApplicationContext(), consultant_information.class);
-                                startActivity(intent);
-
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w("flag1", "createUserWithEmail:failure", task.getException());
-
-                            }
-                        }
-                    });
-
-
-        }
 
         return;
 
+
+    }
+
+
+
+    public int check_if_name_exists(String p_c, String nam){
+
+
+
+        myRef.collection(p_c).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                for(QueryDocumentSnapshot q: queryDocumentSnapshots) {
+
+                    String n = q.getString("name ");
+
+                    if (!(n == null)) {
+
+
+                        if (n.equals(nam)) {
+
+                            name.setText("");
+                            Toast.makeText(Register.this, "Username already exists.", Toast.LENGTH_LONG).show();
+                            f = 1;
+
+                        }
+
+                    }
+                }
+            }
+        });
+
+
+        return f ;
 
     }
 }

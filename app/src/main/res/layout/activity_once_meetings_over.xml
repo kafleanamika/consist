@@ -19,23 +19,22 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_marginBottom="10dp"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <Button
-                android:id="@+id/d_chats"
-                android:text="End"
+                android:id="@+id/o_chats"
+                android:text="Home"
                 android:textColor="@color/foreground"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
             <Button
-                android:id="@+id/d_requests"
+                android:id="@+id/o_requests"
                 android:text="Requests"
                 android:textColor="@color/foreground"
                 android:layout_weight="1"
@@ -43,21 +42,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-
-            <Button
-                android:id="@+id/sign_out"
-                android:layout_margin="10dp"
-                android:background="@drawable/custom_"
-                android:text="Sign out"
-                android:textColor="@color/foreground"
-                android:layout_weight="1"
-                android:layout_width="20dp"
-                android:layout_height="50dp"/>
-
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout"
+            android:id="@+id/cancel_deck"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -65,9 +53,6 @@
 
 
         </LinearLayout>
-
-
-
     </LinearLayout>
 
 

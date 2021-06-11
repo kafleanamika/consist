@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -22,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class Consultants_for_patients extends AppCompatActivity {
+public class Consultants_for_patients extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
 
 
@@ -36,6 +39,8 @@ public class Consultants_for_patients extends AppCompatActivity {
 
     String flag;
     String user_name = "";
+
+    float x1,x2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +50,6 @@ public class Consultants_for_patients extends AppCompatActivity {
         myRef_p = FirebaseFirestore.getInstance().collection("Patient_list");
         layout = (LinearLayout) findViewById(R.id.layout_id);
 
-        recommened = (Button) findViewById(R.id.see_recommended);
 
         flag = getIntent().getStringExtra("Flag");
         user_name = getIntent().getStringExtra("User_name");
@@ -102,13 +106,19 @@ public class Consultants_for_patients extends AppCompatActivity {
     public void add_consultant_to_view(String name_consultant){
 
         Button button = new Button(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            button.setTextColor(getColor(R.color.foreground));
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            button.setBackground(getDrawable(R.drawable.custom_));
+        }
         button.setText(name_consultant);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                Intent i = new Intent(getApplicationContext(),Chat_.class);
+                Intent i = new Intent(getApplicationContext(),consultant_information_specific.class);
                 Log.d("Names_C",button.getText().toString().trim()+"--name of user");
 
                 i.putExtra("Consultant", button.getText().toString().trim());
@@ -137,6 +147,66 @@ public class Consultants_for_patients extends AppCompatActivity {
     }
 
 
+
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+
+        switch (event.getAction()){
+
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                break;
+
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+
+                if(Math.abs(x2-x1) > 150){
+
+                    if ( x2 > x1){
+
+                        Intent i = new Intent(getApplicationContext(), Personal_dashboard_patients.class);
+                        i.putExtra("Flag", flag);
+                        i.putExtra("User_name", user_name);
+                        startActivity(i);
+                    }
+
+                }
+
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
 
 
 }

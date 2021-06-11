@@ -6,21 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".Personal_dashboard_patients"
     android:orientation="vertical"
+    android:background="@color/background"
+
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal">
+
+
+
+
 
     <Button
-        android:id="@+id/see_consultant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Consultants"
-        />
+        android:layout_marginTop="5dp"
+        android:id="@+id/sign_out_p"
+        android:layout_marginStart="290dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_"
+        android:text="Sign out"
+        android:textColor="@color/foreground"
+        android:layout_marginLeft="180dp" />
+    </LinearLayout>
+
 
     <TextView
-        android:text=""
-        android:id="@+id/text_for_patients"
+        android:background="@drawable/custon_listing_small_card"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:text="Recommended Diet Plan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="40dp" />
+        android:layout_height="wrap_content"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:id="@+id/lL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+    </LinearLayout>
 
 
 </LinearLayout>
+

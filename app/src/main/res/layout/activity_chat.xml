@@ -6,25 +6,36 @@
     android:layout_height="wrap_content"
     tools:context=".Chat_"
     android:orientation="vertical"
+    android:background="@color/background"
     >
 
 
     <TextView
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:background="@color/background"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:layout_marginTop="20dp"
         android:text="Unknown"
         android:id="@+id/Name_"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal" />
 
+
+
     <LinearLayout
+        android:background="@drawable/custom_listing"
         android:orientation="vertical"
-        android:layout_marginBottom="50dp"
         android:id="@+id/Chat_info"
         android:layout_width="match_parent"
-        android:layout_height="500dp">
+        android:layout_height="620dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ScrollView>
 
 
     </LinearLayout>
@@ -33,14 +44,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+
         >
     <Button
         android:id="@+id/send_text"
         android:text="Send"
+        android:backgroundTint="@color/background"
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:background="@color/white"
         android:id="@+id/input_to_chat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

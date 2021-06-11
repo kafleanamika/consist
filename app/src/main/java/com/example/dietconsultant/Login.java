@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +34,7 @@ public class Login extends AppCompatActivity {
     public Button login;
     public EditText email;
     public EditText password;
+    TextView pw;
 
 
     private FirebaseAuth myAuth;
@@ -51,6 +53,7 @@ public class Login extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password_login);
         myAuth = FirebaseAuth.getInstance();
         myRef = FirebaseFirestore.getInstance();
+        pw = (TextView) findViewById(R.id.forgot_pw);
 
         flag = 2;
 
@@ -58,9 +61,24 @@ public class Login extends AppCompatActivity {
         CoP.set_flag(flag);
 
         login();
+        forgot_pw();
+        check_if_admin();
 
 
     }
+
+
+    public void check_if_admin(){
+        if(email.getText().toString().trim().equals("admin") && password.getText().toString().trim().equals("admin")){
+
+
+            Intent i = new Intent(getApplicationContext(),Developers_dashboard.class);
+            startActivity(i);
+        }
+
+    }
+
+
     public void login(){
 
 
@@ -69,25 +87,33 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-                //Toast.makeText(Login.this,"Logging in", Toast.LENGTH_LONG).show();
-            myAuth.signInWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Log.d("Pulled","Oo shit");
-                            consultant_or_patient();
+                if(email.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
 
 
+                } else {
+
+
+                    //Toast.makeText(Login.this,"Logging in", Toast.LENGTH_LONG).show();
+                    myAuth.signInWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Log.d("Pulled", "Oo shit");
+
+
+                                consultant_or_patient();
+                                finish();
+
+
+                            }
                         }
-                    }
-                });
-
+                    });
+                }
 
             }
         });
-    }
 
+    }
 
 
     public  void consultant_or_patient(){
@@ -172,6 +198,27 @@ public class Login extends AppCompatActivity {
 
     }
 
+    public void forgot_pw(){
+
+        pw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(email.getText().toString().trim().isEmpty()){
+
+                    Toast.makeText(Login.this,"Enter the email first",Toast.LENGTH_LONG).show();
+
+
+                }
+                else {
+                    myAuth.sendPasswordResetEmail(email.getText().toString().trim());
+                    Toast.makeText(Login.this,"Check your email for password reset link",Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+
+    }
 
 
 
